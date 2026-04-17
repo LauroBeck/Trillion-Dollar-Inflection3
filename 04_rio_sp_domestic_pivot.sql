@@ -1,0 +1,27 @@
+-- FILE: 04_rio_sp_domestic_pivot.sql
+-- DATE: 2026-04-16
+-- DESCRIPTION: Synchronizes Dólar x Real and IBOV Futures for the Stargate Brazil node.
+
+SET PAGESIZE 50
+SET LINESIZE 150
+COLUMN ENTITY FORMAT A20
+
+SELECT 
+    'DOLAR X REAL' AS ENTITY, 
+    4.9929 AS SPOT, 
+    'SUB-5.00 PIVOT' AS STATUS 
+FROM DUAL
+UNION ALL
+SELECT 
+    'IBOVESPA FUT', 
+    131691.59, 
+    'ENERGY RETRACE' 
+FROM DUAL
+UNION ALL
+SELECT 
+    'US 10-YEAR YIELD', 
+    4.3112, 
+    'TIGHTENING' 
+FROM DUAL;
+
+COMMIT;
